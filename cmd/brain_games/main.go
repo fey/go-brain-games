@@ -1,10 +1,10 @@
 package main
 
-    import (
-        "bufio"
-        "fmt"
-        "os"
-    )
+import (
+		"bufio"
+		"fmt"
+		"os"
+)
 // import (
 // 	"fmt"
 
