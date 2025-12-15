@@ -16,7 +16,7 @@ func Play() {
 		Rounds:      make([]game.Round, game.ROUNDS_COUNT),
 	}
 
-	for i, _ := range game.Rounds {
+	for i := range game.Rounds {
 		game.Rounds[i] = buildRound()
 	}
 

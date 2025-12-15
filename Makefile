@@ -7,6 +7,9 @@ brain-games:
 brain-even:
 	@go run cmd/brain_even/main.go
 
+brain-calc:
+	@go run cmd/brain_calc/main.go
+
 check:
 	go vet ./...
 
