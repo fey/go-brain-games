@@ -10,6 +10,9 @@ brain-even:
 brain-calc:
 	@go run cmd/brain_calc/main.go
 
+brain-gcd:
+	@go run cmd/brain_gcd/main.go
+
 check:
 	go vet ./...
 
