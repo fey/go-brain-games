@@ -1,18 +1,24 @@
 package cli
 
+
 import (
 	"fmt"
+
 	"github.com/fey/go-brain-games/internal/game"
 )
 
-func Play(game game.Game) {
+const ROUNDS_COUNT = 3
+
+func Run(game game.Game) {
 	fmt.Println("Welcome to the Brain Games!")
 	name := prompt("May i have your name? ")
 
 	fmt.Printf("Hello, %s\n", name)
 	fmt.Println(game.Description)
 
-	for _, round := range game.Rounds {
+	for range ROUNDS_COUNT {
+		round := game.BuildRound()
+
 		question := round.Question
 		answer := round.Answer
 

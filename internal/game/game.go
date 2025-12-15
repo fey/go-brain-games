@@ -1,7 +1,5 @@
 package game
 
-const ROUNDS_COUNT = 3
-
 type Round struct {
 	Question string
 	Answer   string
@@ -9,5 +7,7 @@ type Round struct {
 
 type Game struct {
 	Description string
-	Rounds      []Round
+	BuildRound BuildRound
 }
+
+type BuildRound func() Round

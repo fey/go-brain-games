@@ -13,14 +13,10 @@ const DESCRIPTION = "Answer \"yes\" if the number is even, otherwise answer \"no
 func Play() {
 	game := game.Game{
 		Description: DESCRIPTION,
-		Rounds:      make([]game.Round, game.ROUNDS_COUNT),
+		BuildRound: buildRound,
 	}
 
-	for i := range game.Rounds {
-		game.Rounds[i] = buildRound()
-	}
-
-	cli.Play(game)
+	cli.Run(game)
 }
 
 func buildRound() game.Round {
