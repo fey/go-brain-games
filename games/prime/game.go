@@ -41,12 +41,12 @@ func buildRound() game.Round {
 }
 
 func isPrime(n int) bool {
-	if (n < 2) {
+	if n < 2 {
 		return false
 	}
 
 	for i := 2; i < int(math.Sqrt(float64(n))); i++ {
-		if n % i == 0 {
+		if n%i == 0 {
 			return false
 		}
 	}

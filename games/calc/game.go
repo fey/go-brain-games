@@ -1,7 +1,6 @@
 package calc
 
 import (
-	"errors"
 	"fmt"
 	"math/rand"
 	"strconv"
