@@ -13,6 +13,9 @@ brain-calc:
 brain-gcd:
 	@go run cmd/brain_gcd/main.go
 
+brain-progression:
+	@go run cmd/brain_progression/main.go
+
 check:
 	go vet ./...
 

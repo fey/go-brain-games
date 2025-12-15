@@ -12,7 +12,6 @@ import (
 
 const DESCRIPTION = "What is the result of the expression?"
 
-
 var operations = [...]rune{'+', '-', '*'}
 
 func Play() {
@@ -36,23 +35,23 @@ func buildRound() game.Round {
 
 	question := fmt.Sprintf("%d %s %d", first, string(op), second)
 
-	answer, _ := calc(op, first, second)
+	answer := calc(op, first, second)
 
 	return game.Round{
 		Question: question,
-		Answer:	strconv.Itoa(answer),
+		Answer:   strconv.Itoa(answer),
 	}
 }
 
-func calc(op rune, first, second int) (int, error) {
+func calc(op rune, first, second int) int {
 	switch op {
 	case '+':
-		return first + second, nil
+		return first + second
 	case '-':
-		return first - second, nil
+		return first - second
 	case '*':
-		return first * second, nil
+		return first * second
 	default:
-		return 0, errors.New("unknown operator")
+		panic("unknown operator")
 	}
 }

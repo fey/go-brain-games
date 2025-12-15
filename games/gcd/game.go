@@ -34,17 +34,17 @@ func buildRound() game.Round {
 
 	return game.Round{
 		Question: question,
-		Answer:	strconv.Itoa(answer),
+		Answer:   strconv.Itoa(answer),
 	}
 }
 
-func gcd(first, second int) (int) {
+func gcd(first, second int) int {
 	max := max(first, second)
 	min := min(first, second)
 
 	rest := max % min
 
-	if (rest == 0) {
+	if rest == 0 {
 		return min
 	}
 
