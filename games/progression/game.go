@@ -5,36 +5,28 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fey/go-brain-games/internal/cli"
 	"github.com/fey/go-brain-games/internal/game"
 )
 
 const description = "What number is missing in the progression?"
 
-func Play() {
-	game := game.Game{
-		Description: description,
-		BuildRound: buildRound,
-	}
+func Create() game.Game {
+	return game.New(description, func() game.Round {
+		first := 1 + rand.Intn(10)
+		step := 1 + rand.Intn(10)
+		count := 10
 
-	cli.Run(game)
-}
+		hiddenIndex := rand.Intn(count)
+		progression := buildProgression(first, step, count)
+		answer := progression[hiddenIndex]
 
-func buildRound() game.Round {
-	first := 1 + rand.Intn(10)
-	step := 1 + rand.Intn(10)
-	count := 10
+		question := buildQuestion(progression, hiddenIndex)
 
-	hiddenIndex := rand.Intn(count)
-	progression := buildProgression(first, step, count)
-	answer := progression[hiddenIndex]
-
-	question := buildQuestion(progression, hiddenIndex)
-
-	return game.Round{
-		Question: question,
-		Answer:   strconv.Itoa(answer),
-	}
+		return game.Round{
+			Question: question,
+			Answer:   strconv.Itoa(answer),
+		}
+	})
 }
 
 func buildProgression(first, step, length int) []int {

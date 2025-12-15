@@ -5,19 +5,13 @@ import (
 	"math/rand"
 	"strconv"
 
-	"github.com/fey/go-brain-games/internal/cli"
 	"github.com/fey/go-brain-games/internal/game"
 )
 
 const description = "What is the result of the expression?"
 
-func Play() {
-	game := game.Game{
-		Description: description,
-		BuildRound:  buildRound,
-	}
-
-	cli.Run(game)
+func Create() game.Game {
+	return game.New(description, buildRound)
 }
 
 func buildRound() game.Round {

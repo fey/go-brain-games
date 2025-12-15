@@ -1,7 +1,10 @@
 package main
 
-import "github.com/fey/go-brain-games/games/calc"
+import (
+	"github.com/fey/go-brain-games/games/calc"
+	"github.com/fey/go-brain-games/internal/cli"
+)
 
 func main() {
-	calc.Play()
+	cli.Run(calc.Create())
 }

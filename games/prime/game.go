@@ -5,35 +5,27 @@ import (
 	"math/rand"
 	"strconv"
 
-	"github.com/fey/go-brain-games/internal/cli"
 	"github.com/fey/go-brain-games/internal/game"
 )
 
 const description = "Answer \"yes\" if given number is prime. Otherwise answer \"no\"."
 
-func Play() {
-	game := game.Game{
-		Description: description,
-		BuildRound:  buildRound,
-	}
+func Create() game.Game {
+	return game.New(description, func() game.Round {
+		var answer string
+		number := 1 + rand.Intn(30)
 
-	cli.Run(game)
-}
+		if isPrime(number) {
+			answer = "yes"
+		} else {
+			answer = "no"
+		}
 
-func buildRound() game.Round {
-	var answer string
-	number := 1 + rand.Intn(30)
-
-	if isPrime(number) {
-		answer = "yes"
-	} else {
-		answer = "no"
-	}
-
-	return game.Round{
-		Question: strconv.Itoa(number),
-		Answer:   answer,
-	}
+		return game.Round{
+			Question: strconv.Itoa(number),
+			Answer:   answer,
+		}
+	})
 }
 
 func isPrime(n int) bool {
