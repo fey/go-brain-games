@@ -16,6 +16,9 @@ brain-gcd:
 brain-progression:
 	@go run cmd/brain_progression/main.go
 
+brain-prime:
+	@go run cmd/brain_prime/main.go
+
 check:
 	go vet ./...
 
