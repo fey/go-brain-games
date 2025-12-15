@@ -1,3 +1,7 @@
+setup:
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	make install
+
 install:
 	go mod download
 
@@ -24,3 +28,9 @@ check:
 
 fmt:
 	go fmt ./...
+
+lint:
+	golangci-lint run ./...
+
+test:
+	go test ./... -v

@@ -37,7 +37,10 @@ func Run(game game.Game) {
 func prompt(query string) string {
 	fmt.Print(query)
 	var answer string
-	fmt.Scanln(&answer)
+	if _, err := fmt.Scanln(&answer); err != nil {
+		fmt.Printf("Error reading input: %v\n", err)
+		return ""
+	}
 
 	return answer
 }
