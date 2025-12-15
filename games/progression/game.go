@@ -9,11 +9,11 @@ import (
 	"github.com/fey/go-brain-games/internal/game"
 )
 
-const DESCRIPTION = "What number is missing in the progression?"
+const description = "What number is missing in the progression?"
 
 func Play() {
 	game := game.Game{
-		Description: DESCRIPTION,
+		Description: description,
 		BuildRound: buildRound,
 	}
 
@@ -26,7 +26,7 @@ func buildRound() game.Round {
 	count := 10
 
 	hiddenIndex := rand.Intn(count)
-	progression := progression(first, step, count)
+	progression := buildProgression(first, step, count)
 	answer := progression[hiddenIndex]
 
 	question := buildQuestion(progression, hiddenIndex)
@@ -37,7 +37,7 @@ func buildRound() game.Round {
 	}
 }
 
-func progression(first, step, length int) []int {
+func buildProgression(first, step, length int) []int {
 	s := make([]int, length)
 
 	for i := range s {
@@ -48,10 +48,6 @@ func progression(first, step, length int) []int {
 }
 
 func buildQuestion(progression []int, hiddenIndex int) string {
-	if hiddenIndex < 0 || hiddenIndex >= len(progression) {
-		panic("hiddenIndex out of range")
-	}
-
 	result := make([]string, len(progression))
 
 	for i, v := range progression {

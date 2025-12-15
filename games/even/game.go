@@ -8,12 +8,12 @@ import (
 	"github.com/fey/go-brain-games/internal/game"
 )
 
-const DESCRIPTION = "Answer \"yes\" if the number is even, otherwise answer \"no\"."
+const description = "Answer \"yes\" if the number is even, otherwise answer \"no\"."
 
 func Play() {
 	game := game.Game{
-		Description: DESCRIPTION,
-		BuildRound: buildRound,
+		Description: description,
+		BuildRound:  buildRound,
 	}
 
 	cli.Run(game)

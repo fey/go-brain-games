@@ -9,12 +9,12 @@ import (
 	"github.com/fey/go-brain-games/internal/game"
 )
 
-const DESCRIPTION = "Answer \"yes\" if given number is prime. Otherwise answer \"no\"."
+const description = "Answer \"yes\" if given number is prime. Otherwise answer \"no\"."
 
 func Play() {
 	game := game.Game{
-		Description: DESCRIPTION,
-		BuildRound: buildRound,
+		Description: description,
+		BuildRound:  buildRound,
 	}
 
 	cli.Run(game)

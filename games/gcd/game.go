@@ -9,12 +9,12 @@ import (
 	"github.com/fey/go-brain-games/internal/game"
 )
 
-const DESCRIPTION = "What is the result of the expression?"
+const description = "What is the result of the expression?"
 
 func Play() {
 	game := game.Game{
-		Description: DESCRIPTION,
-		BuildRound: buildRound,
+		Description: description,
+		BuildRound:  buildRound,
 	}
 
 	cli.Run(game)
